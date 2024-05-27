@@ -81,6 +81,7 @@ def register_method(request):
 
 def logged_out(request):
     logout(request)
+    messages.success(request, 'Odlhlášení proběhlo úspěšně ')
     return redirect("app:index")
 
 def to_do_list(request):
