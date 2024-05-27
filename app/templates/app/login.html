@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    #messages {
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .registration-form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .registration-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .registration-form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    .registration-form button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .registration-form button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    {% extends "app/main.html" %}
+    {% block header %}Přihlašovací stránka{% endblock %}
+    {% block content %}
+    {% if messages %}
+        <div id="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+     <form class="registration-form" action="/login_method/" method="post">
+         {% csrf_token %}
+         {{ form }}
+          <input type="hidden" name="next" value="{% url 'app:logged_in_page' %}">
+         <button type="submit">Login</button>
+     </form>
+{% endblock %}
+</body>
+</html>
