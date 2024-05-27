@@ -1,50 +1,7 @@
+{% extends "app/main.html" %}
 <!DOCTYPE html>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    .registration-form {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-    }
-
-    .registration-form label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .registration-form input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        box-sizing: border-box;
-    }
-
-    .registration-form button {
-        background-color: #28a745;
-        color: #fff;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-
-    .registration-form button:hover {
-        background-color: #218838;
-    }
-</style>
 
 <body>
-    {% extends "app/main.html" %}
     {% block header %}Registrace{% endblock %}
     {% block content %}
      <form class="registration-form" action="/register_method/" method="post">

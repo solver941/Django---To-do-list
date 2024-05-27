@@ -95,7 +95,7 @@ def completed(request, id):
     user_items = Item.objects.filter(user=user)
     if request.user == item.user:
         item.delete()
-        messages.success(request, 'Successfully completed.')
+        messages.success(request, 'Úspěšně přidáno do hotových úkolů')
         return redirect('app:to do list')
         #return render(request, 'app/to_do_list.html', {"user_items": user_items})
     else:
