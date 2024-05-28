@@ -11,7 +11,7 @@ from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib import auth
 from django.utils import timezone
-from .forms import UserLoginForm, UserSignUpForm
+from .forms import UserLoginForm, UserSignUpForm, ExampleForm
 
 def index(request):
     return render(request, "app/index.html")
@@ -48,7 +48,7 @@ def login_method(request):
             messages.success(request, "Úspěšné přihlášení k účtu.")
             return redirect('app:logged_in_page')
         else:
-            messages.error(request, 'Your username or password is incorrect.')
+            messages.error(request, 'Vaše přihlašovací jméno nebo heslo je špatně.')
             return redirect("app:login")
     else:
         form = AuthenticationForm()
@@ -104,11 +104,6 @@ def completed(request, id):
 
 def edit(request, id):
     item = get_object_or_404(Item, id=id)
-    print(item.due_date)
-    #form_with_initial_date = example_form.my_date_field(initial_date=item.due_date)
-    # {{ example_form.my_date_field }}
-    user = request.user
-    user_items = Item.objects.filter(user=user)
     return render(request, 'app/edit.html', {"user_item":item})
 
 def edit_item(request, id):

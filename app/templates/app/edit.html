@@ -1,7 +1,8 @@
 {% extends "app/main.html" %}
+
 <!DOCTYPE html>
 <body>
-{% block header %}Add item{% endblock %}
+{% block header %}Upravit úkol{% endblock %}
 {% block content %}
 
     {% if messages %}
@@ -13,19 +14,16 @@
     {% endif %}
 
     <div id="todo-form">
-        <form action="/update_item/{{ user_item.id }}" method="post" id="add-item-form">
+        <form action="/update_item/{{ user_item.id }}" method="post" id="edit-item-form">
             {% csrf_token %}
-            <label for="to_do">To-do Item:</label>
+            <label for="to_do">Úkol:</label>
             <input type="text" id="to_do" name="item" value="{{ user_item.question_text }}" required>
 
-            <label for="due_date">Due Date:</label>
-            {{ example_form.my_date_field }}
-            {% comment %}<input type="text" id="due_date" name="due_date" required>{% endcomment %}
-            <input id="due_date" name="due_date" type="date" required>
+            <label for="due_date">Datum vyhotovení:</label>
+            <input id="due_date" name="due_date" type="date" value="{{ user_item.due_date|date:'Y-m-d' }}" required>
             <br><br>
             <input type="submit" value="Enter edited Item">
         </form>
     </div>
-
 
 {% endblock %}
