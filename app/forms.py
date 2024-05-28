@@ -9,7 +9,7 @@ class DateInput(forms.DateInput):
 
 
 class ExampleForm(forms.Form):
-    my_date = forms.DateField(widget=DateInput)
+    my_date = forms.DateField(widget=DateInput, initial=None)
 
 
 class UserLoginForm(AuthenticationForm):

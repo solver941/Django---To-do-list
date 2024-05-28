@@ -105,6 +105,8 @@ def completed(request, id):
 def edit(request, id):
     item = get_object_or_404(Item, id=id)
     print(item.due_date)
+    #form_with_initial_date = example_form.my_date_field(initial_date=item.due_date)
+    # {{ example_form.my_date_field }}
     user = request.user
     user_items = Item.objects.filter(user=user)
     return render(request, 'app/edit.html', {"user_item":item})

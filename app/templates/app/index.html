@@ -2,15 +2,17 @@
 <!DOCTYPE html>
 
 <body>
-{% if messages %}
-        <div id="messages">
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
+
 {% block header %}Vítejte{% endblock %}
 {% block content %}
+{% if messages %}
+    <div id="messages">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
     <h1>Vítejte na mé to do list stránce</h1>
     <div>
         Prosím založte si účet na vytvoření to do listu. Tento to do list můžete upravovat, přidávat/mazat položky a uvidíte ho kdykoliv se přihlásíte pod
