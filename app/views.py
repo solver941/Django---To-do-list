@@ -1,32 +1,25 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from .models import Item
-import datetime
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.contrib.auth import login
 from django.contrib import auth
 from django.utils import timezone
-from .forms import UserLoginForm, UserSignUpForm, ExampleForm
+from .forms import UserLoginForm, UserSignUpForm
 
 def index(request):
     return render(request, "app/index.html")
 
 def add_item(request):
-    #return HttpResponse("Add item")
     if request.method == "POST":
         item_name = request.POST.get("item")
         due_date = request.POST.get("due_date")
-        #due_date_time = timezone.make_aware(due_date, timezone.get_current_timezone()) #adds timezone for time zone support
-        print(due_date)
         foo_instance = Item.objects.create(user=request.user, question_text=item_name, due_date=due_date, pub_date=timezone.now())
         foo_instance.user = request.user
         messages.add_message(request, messages.SUCCESS, "Váš úkol byl úspěšně přidán.")
-        return redirect('app:to do list')
+        return redirect('app:to_do_list')
     else:
         messages.add_message(request, messages.error, "Error")
         return redirect('app:logged_in_page')
@@ -96,8 +89,7 @@ def completed(request, id):
     if request.user == item.user:
         item.delete()
         messages.success(request, 'Úspěšně přidáno do hotových úkolů')
-        return redirect('app:to do list')
-        #return render(request, 'app/to_do_list.html', {"user_items": user_items})
+        return redirect('app:to_do_list')
     else:
         messages.error(request, 'Error deleting item.')
         return render(request, 'app/to_do_list.html', {"user_items": user_items})
@@ -115,7 +107,7 @@ def edit_item(request, id):
         item.due_date = request.POST.get("due_date")
         item.save()
         messages.add_message(request, messages.SUCCESS, "Váš úkol byl úspěšně upraven")
-        return redirect('app:to do list')
+        return redirect('app:to_do_list')
     else:
         messages.add_message(request, messages.error, "Error")
         return redirect('app:logged_in_page')

@@ -65,7 +65,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #auto logout
                 'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
@@ -120,7 +119,7 @@ USE_TZ = False #set timezone check required
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'app/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "app/static",
 ]
