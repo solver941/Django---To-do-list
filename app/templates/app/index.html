@@ -1,8 +1,6 @@
 {% extends "app/main.html" %}
 <!DOCTYPE html>
 
-<body>
-
 {% block header %}Vítejte{% endblock %}
 {% block content %}
 {% if messages %}
@@ -12,15 +10,23 @@
         {% endfor %}
     </div>
 {% endif %}
-
-    <h1>Vítejte na mé to do list stránce</h1>
-    <div>
-        Prosím založte si účet na vytvoření to do listu. Tento to do list můžete upravovat, přidávat/mazat položky a uvidíte ho kdykoliv se přihlásíte pod
-    svým účtem.
+<div class="container">
+    <div class="welcome-message">
+        <h2>Vítejte na mé to-do list stránce!</h2>
+        <p>Prosím, založte si účet pro vytvoření vašeho osobního to-do listu. Tento to-do list můžete upravovat, přidávat a mazat položky, a uvidíte ho kdykoliv se přihlásíte pod svým účtem.</p>
     </div>
 
+    <div class="faq-container">
+        <h2>Často kladené otázky (FAQ)</h2>
+        <p><strong>Jak si založím účet?</strong> Klikněte na tlačítko "Zaregistrovat se" a vyplňte požadované údaje.</p>
+        <p><strong>Jak přidám novou položku do seznamu?</strong> Po přihlášení klikněte na "Přidat položku" a vyplňte název a popis.</p>
+        <p><strong>Jak smažu položku ze seznamu?</strong> Vedle každé položky v to do list části stránky je tlačítko "Hotovo", klikněte na něj pro přidání do hotových úkolů
+        a následného smazání ze seznamu</p>
+        <p><strong>Mohu upravit již existující položku?</strong> Ano, v to do listu klikněte na "upravit", kterou chcete upravit, a proveďte změny.</p>
+    </div>
+
+</div>
 {% endblock %}
 
 
-</body>
 

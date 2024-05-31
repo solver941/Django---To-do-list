@@ -90,8 +90,6 @@ def completed(request, id):
         item.delete()
         messages.success(request, 'Úspěšně přidáno do hotových úkolů')
         return redirect('app:to_do_list')
-        return redirect('app:to_do_list')
-        #return render(request, 'app/to_do_list.html', {"user_items": user_items})
     else:
         messages.error(request, 'Error deleting item.')
         return render(request, 'app/to_do_list.html', {"user_items": user_items})

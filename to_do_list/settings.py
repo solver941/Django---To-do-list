@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0#2di2n0-7o=d%eaji(q9014m7%*d23o6@5x*-p-1pzykhs=gw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["marekheckelmoser.pythonanywhere.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'cs'
 
 TIME_ZONE = 'UTC'
 
@@ -143,5 +143,5 @@ AUTO_LOGOUT = {
     'IDLE_TIME': 600, #logout after time in seconds since inactivity
     'SESSION_TIME': 3600, #logout after time in seconds since login
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
-    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'MESSAGE': 'Čas přihlášení vypršel, prosím znovu se přihlaste',
 }
